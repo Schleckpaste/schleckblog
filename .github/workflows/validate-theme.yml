@@ -1,0 +1,25 @@
+name: Validate WordPress theme
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Validate theme files
+        run: |
+          node --check wp-content/themes/schleckblog/assets/js/language-toggle.js
+          node -e "JSON.parse(require('node:fs').readFileSync('wp-content/themes/schleckblog/theme.json', 'utf8'))"
+          test -f wp-content/themes/schleckblog/style.css
+          test -f wp-content/themes/schleckblog/templates/front-page.html
+          test -f wp-content/themes/schleckblog/templates/index.html
