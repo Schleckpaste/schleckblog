@@ -1,0 +1,23 @@
+# WordPress runtime and generated content
+/wp-config.php
+/wp-content/upgrade/
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/object-cache.php
+
+# Local environment overrides and secrets
+.wp-env.override.json
+.env
+.env.*
+!.env.example
+
+# Node tooling
+/node_modules/
+npm-debug.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
